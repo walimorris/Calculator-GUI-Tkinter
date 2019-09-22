@@ -36,8 +36,7 @@ class Calculator:
         master.configure(background="gray30")
         master.resizable(width=False, height=False)
         
-        #Build widgets 
-        #Create output window for calculations
+        #Build widgets. Create output window for calculations
         #To expland widgets pass columns and rows, columnspan= and rowspan= then modify height and width of widget (zero button, equals button)
         self.calcEntry = Entry(master, background="gray85", relief=RIDGE) #Calculation output window
         self.offButton = Button(master, width=2, height=1, bg="red3", text="OFF", command= lambda: self.action(exit()), font="fixedsys") #Off Button
