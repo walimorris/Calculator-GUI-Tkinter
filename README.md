@@ -1,9 +1,16 @@
-# Calculator-GUI-Tkinter
+# A Slick Calculator for Maths
+
 An awesome calculator developed with Tkinter.
 
-I've taken 2 days from my 10-day programming challenges, but I've continued reading up on the Tkinter Docs. 
-I took a chance building my first GUI with Tkinter called Parsed, a computer science dictionary, and quickly realized I needed to improve.
+By: Wali Morris
+
+After studying Python and working with Tkinter I wanted to put this newly learned, and limited, knowledge
+to the test. It's important to practice and although this calculator may not win over many, I'm still 
+happy to have struggled through this process early to learn alot. 
+
 
 So, here's another go with a calculator developed using Tkinter! 
 
 ![Calculator!](Calc.png)
+
+
