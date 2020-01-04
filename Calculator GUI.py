@@ -98,6 +98,3 @@ class Calculator:
 window = Tk()
 myCalc = Calculator(window)
 window.mainloop()
-
-        
-
