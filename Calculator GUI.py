@@ -43,8 +43,6 @@ class Calculator:
     def action(self, argi):
         self.calcEntry.insert(END, argi)
 
-
-
     def __init__(self, master):
         self.master = master
         master.title("MATHS")
@@ -96,8 +94,6 @@ class Calculator:
         self.buttonSubtract.grid(row=2, column=4, sticky=W, padx=15, pady=15) #Subtract Button
         self.buttonAdd.grid(row=3, column=4, sticky=W, padx=15) #Add Button 
         self.buttonEquals.grid(row=4, column=4, rowspan=2, sticky=W, padx=15) #Equals Button
-
-
 
 window = Tk()
 myCalc = Calculator(window)
