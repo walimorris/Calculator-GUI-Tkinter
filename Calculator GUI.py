@@ -1,5 +1,4 @@
 ################################################################################
-# 
 # Filename    : Calc.py
 # Description : A Calculator built with Tkinter
 # Author      : Wali Morris
