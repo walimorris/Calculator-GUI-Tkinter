@@ -1,17 +1,31 @@
-#Note: Simple calculator. User has the ability to completely utilize buttons for calculations or type within the calculation entry box itself.
-#After typing calculations, user will have to press the 'equals' button on GUI to calculate entry. OFF simply exits. 
+################################################################################
+# 
+# Filename    : Calc.py
+# Description : A Calculator built with Tkinter
+# Author      : Wali Morris
+# Created     : Sep 21, 2019
+################################################################################
 
 from tkinter import *
 
 
 class Calculator:
-    
-    def getReplace(self): #replace 'x' with '*' and '//' with '/', this way 'x' doesn't cause an error and '/' returns int rather than float
-        self.expression = self.calcEntry.get() #Recieve entry from calculation from entry box
+
+    def getReplace(self):
+        """ replace 'x' with '*' and '//' with '/', this way 'x' doesn't cause an 
+        error and '/' returns int rather than float.
+
+        """
+        #Recieve entry from calculation from entry box
+        self.expression = self.calcEntry.get()
         self.newtext = self.expression.replace('/', '//')
         self.newtext = self.newtext.replace('x', '*')
-        
-    def equals(self): #when equal button is pressed, evaluate calculations, if error, delete and return error text. Else, delete calculations and return value
+
+    def equals(self):
+        """ when equal button is pressed, evaluate calculations, if error, delete and 
+        return error text. Else, delete calculations and return value.
+
+        """
         self.getReplace()
         try:
             self.value = eval(self.newtext)
@@ -21,23 +35,28 @@ class Calculator:
         else:
             self.calcEntry.delete(0, END)
             self.calcEntry.insert(0, self.value)
-    
-    def clearAll(self): #when clear button is pressed
+
+    #when clear button is pressed
+    def clearAll(self):
         self.calcEntry.delete(0, END)
-        
-    def action(self, argi): #button's value is inserted within calculations entrybox
+
+    #button's value is inserted within calculations entrybox
+    def action(self, argi):
         self.calcEntry.insert(END, argi)
-        
-    
-    
+
+
+
     def __init__(self, master):
         self.master = master
         master.title("MATHS")
         master.configure(background="gray30")
         master.resizable(width=False, height=False)
         
-        #Build widgets. Create output window for calculations
-        #To expland widgets pass columns and rows, columnspan= and rowspan= then modify height and width of widget (zero button, equals button)
+        """Build widgets. Create output window for calculations to expland widgets pass columns
+        and rows, columnspan= and rowspan= then modify height and width of widget 
+        (zero button, equals button)
+
+        """
         self.calcEntry = Entry(master, background="gray85", relief=RIDGE) #Calculation output window
         self.offButton = Button(master, width=2, height=1, bg="red3", text="OFF", command= lambda: self.action(exit()), font="fixedsys") #Off Button
         self.buttonSeven = Button(master, width=2, height=1, bg="gray80", text="7", command= lambda: self.action(7), font="fixedsys") #Button #7
@@ -57,7 +76,7 @@ class Calculator:
         self.buttonSubtract = Button(master, width=2, height=1, bg="orange", text="-", command= lambda: self.action('-'), font="fixedsys") #Subtract Button
         self.buttonAdd = Button(master, width=2, height=1, bg="orange", text="+", command= lambda: self.action('+'), font="fixedsys") #Add Button
         self.buttonEquals = Button(master, width=2, height=4, bg="green2", text="=", command=lambda: self.equals(), font="fixedsys") #Equals Button
-        
+
         #Place widget layout
         self.calcEntry.grid(row=0, column=1, columnspan=4, sticky=N+S+E+W, padx=15, pady=15, ipady=15) #Calculation output layout
         self.offButton.grid(row=1, column=1, sticky=W, padx=15) #Off Button layout
@@ -78,9 +97,12 @@ class Calculator:
         self.buttonSubtract.grid(row=2, column=4, sticky=W, padx=15, pady=15) #Subtract Button
         self.buttonAdd.grid(row=3, column=4, sticky=W, padx=15) #Add Button 
         self.buttonEquals.grid(row=4, column=4, rowspan=2, sticky=W, padx=15) #Equals Button
-        
-    
-           
+
+
+
 window = Tk()
 myCalc = Calculator(window)
 window.mainloop()
+
+        
+
